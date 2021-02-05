@@ -3,17 +3,17 @@ const exphbs=require('express-handlebars')
 const path=require('path')
 const bodyParser=require('body-parser')
 const methodOverride=require('method-override')
-// const redis=require('redis')
+const redis=require('redis')
 const dotenv=require('dotenv')
 
 dotenv.config({path:'./config/dev.env'})
 const PORT=process.env.PORT
 const app=express()
-// let client=redis.createClient()
+let client=redis.createClient()
 
-// client.on('connect',()=>{
-//     console.log('Connected to redis')
-// })
+client.on('connect',()=>{
+    console.log('Connected to redis')
+})
 
 app.engine('handlebars',exphbs({defaultLayout:'main'}))
 app.set('view engine','handlebars')
