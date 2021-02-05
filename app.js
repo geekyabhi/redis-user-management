@@ -9,11 +9,11 @@ const dotenv=require('dotenv')
 dotenv.config({path:'./config/dev.env'})
 const PORT=process.env.PORT
 const app=express()
-let client=redis.createClient()
+// let client=redis.createClient()
 
-client.on('connect',()=>{
-    console.log('Connected to redis')
-})
+// client.on('connect',()=>{
+//     console.log('Connected to redis')
+// })
 
 app.engine('handlebars',exphbs({defaultLayout:'main'}))
 app.set('view engine','handlebars')
